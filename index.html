@@ -149,9 +149,7 @@
     </header>
 
     <div class="contenedor">
-
         <div class="formulario">
-
             <h2>Contáctanos</h2>
 
             <form id="formulario">
@@ -421,27 +419,42 @@
                     "522751082518";
 
                 let mensaje =
-                    "Hola, tengo una consulta sobre UATV / UTIM.%0A%0A" +
-                    "👤 Nombre: " + nombre + "%0A" +
-                    "📱 Teléfono: " + telefono + "%0A" +
-                    "📧 Correo: " + correo + "%0A%0A" +
-                    "💬 Comentario:%0A" +
+                    "Hola, tengo una consulta sobre UATV / UTIM.\n\n" +
+                    "👤 Nombre: " + nombre + "\n" +
+                    "📱 Teléfono: " + telefono + "\n" +
+                    "📧 Correo: " + correo + "\n\n" +
+                    "💬 Comentario:\n" +
                     comentario;
 
                 let url =
                     "https://wa.me/" +
                     numeroWhatsApp +
                     "?text=" +
-                    mensaje;
+                    encodeURIComponent(mensaje);
 
                 window.open(
                     url,
                     "_blank"
                 );
+                document.getElementById("formulario").reset();
+                crearCaptcha();
 
             });
 
     </script>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6ac5a5f793782434c5d0a246/1k4a10kad';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
 </body>
 </html>
