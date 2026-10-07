@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Contacto UATV / UTIM</title>
+
     <style>
         * {
             box-sizing: border-box;
@@ -36,10 +36,8 @@
             width: 90%;
             max-width: 1100px;
             margin: 30px auto;
-
             display: grid;
             grid-template-columns: 1fr 1fr;
-
             gap: 25px;
         }
 
@@ -47,11 +45,8 @@
         .mapa {
             background: white;
             padding: 25px;
-
             border-radius: 15px;
-
-            box-shadow:
-                0 4px 15px rgba(0, 0, 0, 0.10);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.10);
         }
 
         h2 {
@@ -61,54 +56,39 @@
 
         label {
             display: block;
-
             margin-top: 15px;
             margin-bottom: 5px;
-
             font-weight: bold;
         }
 
         input,
         textarea {
             width: 100%;
-
             padding: 12px;
-
             border: 1px solid #bbb;
-
             border-radius: 8px;
-
             font-size: 15px;
         }
 
         textarea {
             height: 110px;
-
             resize: none;
         }
 
         .captcha {
             margin-top: 20px;
-
             padding: 15px;
-
             background: #f0f5f8;
-
             border-radius: 10px;
         }
 
         #captchaCanvas {
             width: 100%;
             height: 80px;
-
             border-radius: 8px;
-
             border: 1px solid #aaa;
-
             background: #eeeeee;
-
             margin: 10px 0;
-
             display: block;
         }
 
@@ -153,46 +133,16 @@
             color: #555;
         }
 
-        .clima {
-            margin-top: 20px;
-            padding: 20px;
-            background: #f0f5f8;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .clima h3 {
-            color: #123c5a;
-            margin-top: 0;
-        }
-
-        .temperatura {
-            font-size: 40px;
-            font-weight: bold;
-            color: #123c5a;
-            margin: 10px 0;
-        }
-
-        .estado-clima {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        .dato-clima {
-            margin: 5px;
-            color: #555;
-        }
-
         @media (max-width: 750px) {
             .contenedor {
                 grid-template-columns: 1fr;
             }
         }
-
     </style>
 </head>
 
 <body>
+
     <header>
         <h1>UATV / UTIM</h1>
         <p>Formulario de contacto</p>
@@ -200,13 +150,11 @@
 
     <div class="contenedor">
         <div class="formulario">
-
             <h2>Contáctanos</h2>
 
             <form id="formulario">
 
                 <label>Nombre:</label>
-
                 <input
                     type="text"
                     id="nombre"
@@ -215,7 +163,6 @@
                 >
 
                 <label>Teléfono:</label>
-
                 <input
                     type="tel"
                     id="telefono"
@@ -226,7 +173,6 @@
                 >
 
                 <label>Correo:</label>
-
                 <input
                     type="email"
                     id="correo"
@@ -235,7 +181,6 @@
                 >
 
                 <label>Comentario:</label>
-
                 <textarea
                     id="comentario"
                     placeholder="Escribe tu comentario..."
@@ -252,13 +197,11 @@
                         Escribe los caracteres que aparecen:
                     </p>
 
-
                     <canvas
                         id="captchaCanvas"
                         width="500"
                         height="100">
                     </canvas>
-
 
                     <input
                         type="text"
@@ -268,12 +211,10 @@
                         required
                     >
 
-
                     <button
                         type="button"
                         class="nuevoCaptcha"
-                        onclick="crearCaptcha()"
-                    >
+                        onclick="crearCaptcha()">
                         🔄 Generar otro código
                     </button>
 
@@ -282,7 +223,9 @@
                 <button type="submit">
                     📱 Enviar por WhatsApp
                 </button>
+
             </form>
+
         </div>
 
         <div class="mapa">
@@ -291,17 +234,11 @@
                 📍 Nuestra ubicación
             </h2>
 
-
             <p class="ubicacion">
-
                 UATV / UTIM
-
                 <br>
-
                 Tulcingo de Valle, Puebla
-
             </p>
-
 
             <iframe
                 src="https://www.google.com/maps?q=Tulcingo%20de%20Valle%2C%20Puebla&output=embed"
@@ -309,69 +246,19 @@
                 loading="lazy">
             </iframe>
 
-            <div class="clima">
-
-                <h3>
-                    🌤️ Clima actual
-                </h3>
-
-
-                <p>
-                    Tulcingo de Valle, Puebla
-                </p>
-
-
-                <div
-                    class="temperatura"
-                    id="temperatura"
-                >
-                    -- °C
-                </div>
-
-
-                <div
-                    class="estado-clima"
-                    id="estadoClima"
-                >
-                    Cargando clima...
-                </div>
-
-
-                <p
-                    class="dato-clima"
-                    id="humedad"
-                >
-                    💧 Humedad: -- %
-                </p>
-
-
-                <p
-                    class="dato-clima"
-                    id="viento"
-                >
-                    💨 Viento: -- km/h
-                </p>
-
-            </div>
-
         </div>
 
     </div>
-
 
     <script>
 
         let captcha = "";
 
-
         function crearCaptcha() {
 
-            let canvas =
-                document.getElementById("captchaCanvas");
+            let canvas = document.getElementById("captchaCanvas");
 
-            let ctx =
-                canvas.getContext("2d");
-
+            let ctx = canvas.getContext("2d");
 
             ctx.clearRect(
                 0,
@@ -392,15 +279,13 @@
             let caracteres =
                 "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
-
             captcha = "";
 
             for (let i = 0; i < 6; i++) {
 
                 captcha += caracteres.charAt(
                     Math.floor(
-                        Math.random() *
-                        caracteres.length
+                        Math.random() * caracteres.length
                     )
                 );
 
@@ -410,78 +295,48 @@
 
                 ctx.beginPath();
 
-
                 ctx.moveTo(
-                    Math.random() *
-                    canvas.width,
-
-                    Math.random() *
-                    canvas.height
+                    Math.random() * canvas.width,
+                    Math.random() * canvas.height
                 );
-
 
                 ctx.lineTo(
-                    Math.random() *
-                    canvas.width,
-
-                    Math.random() *
-                    canvas.height
+                    Math.random() * canvas.width,
+                    Math.random() * canvas.height
                 );
-
 
                 ctx.strokeStyle = "#777777";
 
                 ctx.lineWidth = 1;
 
                 ctx.stroke();
-
             }
 
-            for (
-                let i = 0;
-                i < captcha.length;
-                i++
-            ) {
+            for (let i = 0; i < captcha.length; i++) {
 
                 let tamaño =
                     30 + Math.random() * 10;
 
-
                 let x =
                     45 + (i * 70);
-
 
                 let y =
                     55 + Math.random() * 15;
 
-
                 let angulo =
                     (Math.random() - 0.5) * 0.5;
 
-
                 ctx.save();
 
+                ctx.translate(x, y);
 
-                ctx.translate(
-                    x,
-                    y
-                );
-
-
-                ctx.rotate(
-                    angulo
-                );
-
+                ctx.rotate(angulo);
 
                 ctx.font =
-                    "bold " +
-                    tamaño +
-                    "px Arial";
-
+                    "bold " + tamaño + "px Arial";
 
                 ctx.fillStyle =
                     "#123c5a";
-
 
                 ctx.fillText(
                     captcha[i],
@@ -489,130 +344,119 @@
                     0
                 );
 
-
                 ctx.restore();
-
             }
-
 
             for (let i = 0; i < 40; i++) {
 
                 ctx.beginPath();
 
-
                 ctx.arc(
-                    Math.random() *
-                    canvas.width,
-
-                    Math.random() *
-                    canvas.height,
-
+                    Math.random() * canvas.width,
+                    Math.random() * canvas.height,
                     1.5,
-
                     0,
-
                     Math.PI * 2
                 );
 
-
-                ctx.fillStyle =
-                    "#555555";
-
+                ctx.fillStyle = "#555555";
 
                 ctx.fill();
-
             }
-
         }
 
         crearCaptcha();
 
         document
             .getElementById("telefono")
-            .addEventListener(
-                "input",
-                function() {
+            .addEventListener("input", function() {
 
-                    this.value =
-                        this.value.replace(
-                            /\D/g,
-                            ""
-                        );
+                this.value =
+                    this.value.replace(/\D/g, "");
 
+                this.value =
+                    this.value.substring(0, 10);
 
-                    this.value =
-                        this.value.substring(
-                            0,
-                            10
-                        );
-
-                }
-            );
+            });
 
         document
             .getElementById("formulario")
-            .addEventListener(
-                "submit",
-                function(event) {
+            .addEventListener("submit", function(event) {
 
-                    event.preventDefault();
+                event.preventDefault();
 
+                let nombre =
+                    document.getElementById("nombre").value;
 
-                    let nombre =
-                        document
-                            .getElementById("nombre")
-                            .value;
+                let telefono =
+                    document.getElementById("telefono").value;
 
+                let correo =
+                    document.getElementById("correo").value;
 
-                    let telefono =
-                        document
-                            .getElementById("telefono")
-                            .value;
+                let comentario =
+                    document.getElementById("comentario").value;
 
+                let respuesta =
+                    document.getElementById("respuesta").value;
 
-                    let correo =
-                        document
-                            .getElementById("correo")
-                            .value;
+                if (
+                    respuesta.trim().toUpperCase() !== captcha
+                ) {
 
+                    alert(
+                        "❌ CAPTCHA incorrecto. Intenta nuevamente."
+                    );
 
-                    let comentario =
-                        document
-                            .getElementById("comentario")
-                            .value;
+                    crearCaptcha();
 
+                    document.getElementById("respuesta").value = "";
 
-                    let respuesta =
-                        document
-                            .getElementById("respuesta")
-                            .value;
+                    return;
+                }
 
-                    if (
-                        respuesta
-                            .trim()
-                            .toUpperCase()
-                        !== captcha
-                    ) {
+                let numeroWhatsApp =
+                    "522751082518";
 
-                        alert(
-                            "❌ CAPTCHA incorrecto. Intenta nuevamente."
-                        );
+                let mensaje =
+                    "Hola, tengo una consulta sobre UATV / UTIM.\n\n" +
+                    "👤 Nombre: " + nombre + "\n" +
+                    "📱 Teléfono: " + telefono + "\n" +
+                    "📧 Correo: " + correo + "\n\n" +
+                    "💬 Comentario:\n" +
+                    comentario;
 
+                let url =
+                    "https://wa.me/" +
+                    numeroWhatsApp +
+                    "?text=" +
+                    encodeURIComponent(mensaje);
 
-                        crearCaptcha();
+                window.open(
+                    url,
+                    "_blank"
+                );
+                document.getElementById("formulario").reset();
+                crearCaptcha();
 
+            });
 
-                        document
-                            .getElementById("respuesta")
-                            .value = "";
+    </script>
 
+    <!--Esto se agrego para la version de mensaje-->
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6ac5a5f793782434c5d0a246/1k4a10kad';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
 
-                        return;
-
-                    }
-
-                    let numeroWhatsApp =
-                        "522751082518";
-
-
-                    /
+</body>
+</html>
